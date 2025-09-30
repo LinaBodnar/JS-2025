@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практична робота_01-JS03</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+<h1 id="mainTitle">Привіт, СВІТ!</h1>
+<button id="deleteBtn">Видалити заголовок</button>
+<button id="restoreBtn" style="display:none;">Відновити сторінку</button>
+
+<script>
+    const heading = document.getElementById("mainTitle");
+    const deleteBtn = document.getElementById("deleteBtn");
+    const restoreBtn = document.getElementById("restoreBtn");
+
+    const originalContent = document.body.innerHTML;
+
+    deleteBtn.onclick = function() {
+        heading.remove();
+        deleteBtn.style.display = "none";
+        restoreBtn.style.display = "inline-block";
+    };
+
+    restoreBtn.onclick = function() {
+        document.body.innerHTML = originalContent;
+        location.reload();
+    };
+</script>
+</body>
+</html>
